@@ -39,7 +39,16 @@ else
   git clone --depth=1 https://github.com/asdf-vm/asdf.git ~/.asdf
 fi
 
-echo -e "${LIGHT_RED}----- [5/10]複製設定檔 -----${NC}"
+echo -e "${LIGHT_RED}----- [5/10]下載字體 Nerd Fonts version of Hack, Roboto Mono, DejaVu Sans Mono -----${NC}"
+
+wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
+wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
+wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
+
+echo -e "${LIGHT_RED}----- [6/10]安裝字體 Nerd Fonts version of Hack, Roboto Mono, DejaVu Sans Mono -----${NC}"
+fc-cache -fv ~/.fonts
+
+echo -e "${LIGHT_RED}----- [7/10]複製設定檔 -----${NC}"
 echo -e "${LIGHT_BLUE}複製 .zshrc 到 ${HOME}${NC}"
 cp -f .zshrc ~/
 echo -e "${LIGHT_BLUE}複製 ezsh.zsh 到 ${HOME}/.config/ezsh${NC}"
@@ -66,19 +75,9 @@ else
     git clone --depth=1 https://github.com/asdf-vm/asdf.git ~/.config/ezsh/oh-my-zsh/plugins/asdf
 fi
 
-# 字體安裝
-
-echo -e "${LIGHT_RED}----- [6/10]下載字體 Nerd Fonts version of Hack, Roboto Mono, DejaVu Sans Mono -----${NC}"
-
-wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
-wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
-wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
-
-echo -e "${LIGHT_RED}----- [7/10]安裝字體 -----${NC}"
-fc-cache -fv ~/.fonts
-
+echo -e "${LIGHT_GREEN}----- 下載/更新 => oh-my-zsh 衍生套件 powerlevel10k -----${NC}"
 if [ -d ~/.config/ezsh/oh-my-zsh/custom/themes/powerlevel10k ]; then
-    cd ~/.config/ezsh/oh-my-zsh/custom/themes/powerlevel10k && git pull
+    cd ~/.config/ezsh/oh-my-zsh/custom/themes/powerlevel10k && git pull --rebase
 else
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/ezsh/oh-my-zsh/custom/themes/powerlevel10k
 fi
