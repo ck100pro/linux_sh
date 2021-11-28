@@ -24,7 +24,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 printf "${LIGHT_RED}----- [2/10] 安裝 Zsh Terminal -----${NC}\n"
 sudo apt-get install zsh -y
 
-printf "${LIGHT_RED}----- [3/10] 下載 oh-my-zsh -----${NC}"
+printf "${LIGHT_RED}----- [3/10] 下載 oh-my-zsh -----${NC}\n"
 if [ -d ${HOME}/.config/ezsh/oh-my-zsh ]; then
   printf "${YELLOW}oh-my-zsh 已經安裝在 ${HOME}/.config/ezsh 目錄底下${NC}\n"
 else
