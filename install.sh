@@ -1,22 +1,5 @@
-# 色彩設定
-Black='\033[0;30m'
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BROWN='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT_GRAY='\033[0;37m'
-DARK_GRAY='\033[1;30m'
-LIGHT_RED='\033[1;31m'
-LIGHT_GREEN='\033[1;32m'
-YELLOW='\033[1;33m'
-LIGHT_BLUE='\033[1;34m'
-LIGHT_PURPLE='\033[1;35m'
-LIGHT_CYAN='\033[1;36m'
-WHITE='\033[1;37m'
-NC='\033[0m'
-
+# 載入衍生 sh 檔
+source ./style/color.sh
 
 printf "${LIGHT_RED}----- [1/10] 系統更新 -----${NC}\n"
 sudo apt-get update && sudo apt-get upgrade -y
@@ -55,32 +38,31 @@ cp -f ezsh.zsh ~/.config/ezsh
 
 printf "${LIGHT_GREEN}----- 下載/更新: oh-my-zsh 衍生套件 zsh-syntax-highlighting -----${NC}\n"
 if [ -d ~/.config/ezsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
-    cd ~/.config/ezsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting && git pull --rebase
+  cd ~/.config/ezsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting && git pull --rebase
 else
-    git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/ezsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+  git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/ezsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 fi
 
 printf "${LIGHT_GREEN}----- 下載/更新: oh-my-zsh 衍生套件 zsh-autosuggestions -----${NC}\n"
 if [ -d ~/.config/ezsh/oh-my-zsh/plugins/zsh-autosuggestions ]; then
-    cd ~/.config/ezsh/oh-my-zsh/plugins/zsh-autosuggestions && git pull --rebase
+  cd ~/.config/ezsh/oh-my-zsh/plugins/zsh-autosuggestions && git pull --rebase
 else
-    git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ~/.config/ezsh/oh-my-zsh/plugins/zsh-autosuggestions
+  git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ~/.config/ezsh/oh-my-zsh/plugins/zsh-autosuggestions
 fi
 
 printf "${LIGHT_GREEN}----- 下載/更新: oh-my-zsh 衍生套件 asdf -----${NC}\n"
 if [ -d ~/.config/ezsh/oh-my-zsh/plugins/asdf ]; then
-    cd ~/.config/ezsh/oh-my-zsh/plugins/asdf && git pull --rebase
+  cd ~/.config/ezsh/oh-my-zsh/plugins/asdf && git pull --rebase
 else
-    git clone --depth=1 https://github.com/asdf-vm/asdf.git ~/.config/ezsh/oh-my-zsh/plugins/asdf
+  git clone --depth=1 https://github.com/asdf-vm/asdf.git ~/.config/ezsh/oh-my-zsh/plugins/asdf
 fi
 
 printf "${LIGHT_GREEN}----- 下載/更新: oh-my-zsh 衍生套件 powerlevel10k -----${NC}\n"
 if [ -d ~/.config/ezsh/oh-my-zsh/custom/themes/powerlevel10k ]; then
-    cd ~/.config/ezsh/oh-my-zsh/custom/themes/powerlevel10k && git pull --rebase
+  cd ~/.config/ezsh/oh-my-zsh/custom/themes/powerlevel10k && git pull --rebase
 else
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/ezsh/oh-my-zsh/custom/themes/powerlevel10k
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/ezsh/oh-my-zsh/custom/themes/powerlevel10k
 fi
 
 printf "${LIGHT_PURPLE}----- 設定 zsh 為主終端機 -----${NC}\n"
 chsh -s /bin/zsh
-
