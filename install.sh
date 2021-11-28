@@ -33,7 +33,7 @@ fi
 
 printf "${LIGHT_RED}----- [4/10] 下載 asdf -----${NC}\n"
 if [ -d ${HOME}/.asdf ]; then
-  printf "${YELLOW}oh-my-zsh 已經安裝在 ${HOME} 目錄底下${NC}\n"
+  printf "${YELLOW}asdf 已經安裝在 ${HOME} 目錄底下${NC}\n"
 else
   git clone --depth=1 https://github.com/asdf-vm/asdf.git ~/.asdf
 fi
